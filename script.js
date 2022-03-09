@@ -1,8 +1,11 @@
+let playerSelection;
+let computerSelection;
+const choices = ["rock", "paper", "scissors"];
+
 // Return radomly rock, paper, or scissors
 const computerPlay = () => {
-  const selection = ["rock", "paper", "scissors"];
-  let randomIndex = Math.round(Math.random() * 2);
-  return selection[randomIndex];
+  const randomNumber = Math.floor(Math.random() * 3);
+  return choices[randomNumber];
 }
 
 // Function that plays one round of game
@@ -17,6 +20,13 @@ const playRound = (playerSelection, computerSelection) => {
   return 'You Win!!';
 }
 
-const playerSelection = 'paper';
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+// Game function
+const game = () => {
+  for (let i = 0; i < 5; i++) {
+    playerSelection = prompt("Choose rock, paper, or scissors");
+    computerSelection = computerPlay();
+    alert(playRound(playerSelection, computerSelection));
+  }
+}
+
+alert(game(playerSelection, computerSelection));
